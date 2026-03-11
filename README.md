@@ -5,7 +5,13 @@ A Claude skill that writes the perfect prompts for any AI tool. Zero tokens or c
 
 ## Installation
 
-### Recommended (clone directly into Claude Code skills directory)
+### Claude.ai (browser)
+
+1. Download this repo as a ZIP.
+2. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
+
+
+### Clone directly into Claude Code skills directory
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -20,11 +26,6 @@ If you already have this repo cloned (or you downloaded SKILL.md), copy the skil
 mkdir -p ~/.claude/skills/prompt-master
 cp SKILL.md ~/.claude/skills/prompt-master/
 ```
-
-### Claude.ai (browser)
-
-1. Download this repo as a ZIP.
-2. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
 
 ## Usage
 
