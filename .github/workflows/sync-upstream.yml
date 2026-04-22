@@ -1,0 +1,21 @@
+name: Sync fork from upstream
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'   # Weekly, Sundays 06:00 UTC
+  workflow_dispatch:       # Allow manual runs from the Actions tab
+
+permissions:
+   contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync fork with upstream
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh repo sync ${{ github.repository }} \
+            --source nidhinjs/prompt-master \
+            --branch main
