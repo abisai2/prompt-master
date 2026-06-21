@@ -20,7 +20,7 @@ A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or 
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master
+git clone https://github.com/abisai2/prompt-master.git ~/.claude/skills/prompt-master
 ```
 
 ## 🔥 The Problem This Solves
@@ -404,14 +404,20 @@ This is the single biggest fix for long sessions. Most wasted re-prompts come fr
 
 ---
 
+## 🙏 Credits
+
+This project is a fork of [prompt-master](https://github.com/nidhinjs/prompt-master) by [Nidhin Joseph Nelson](https://github.com/nidhinjs), the original author. All credit for the original work goes to them. This fork maintains and extends it independently.
+
+---
+
 ## 📄 License
 
-MIT: See [LICENSE](LICENSE) for details.
+MIT — Copyright (c) 2026 Nidhin Joseph Nelson. See [LICENSE](LICENSE) for details.
 
 ---
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=nidhinjs/prompt-master&type=Date)](https://star-history.com/#nidhinjs/claude-skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=abisai2/prompt-master&type=Date)](https://star-history.com/#abisai2/prompt-master&Date)
 
 ---
