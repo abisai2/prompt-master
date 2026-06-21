@@ -125,7 +125,7 @@ Experiment: Give 3 variants ranging from minimal to bold.
 
 *Use for logic-heavy tasks, math, debugging, and multi-factor analysis where the AI needs to reason carefully before committing to an answer.*
 
-**Important:** Only use CoT for standard reasoning models (Claude, GPT-4o, Gemini). Do NOT add CoT instructions to o1, o3, or Claude extended thinking — they reason internally and CoT instructions degrade their output.
+**Important:** Only use CoT for standard reasoning models (the `COT_SAFE` list in [model-registry.md](model-registry.md)). Do NOT add CoT instructions to `REASONING_NATIVE` models or Claude extended thinking — they reason internally and CoT instructions degrade their output.
 
 ```
 [Task statement]
@@ -148,7 +148,7 @@ Give your final answer in <answer> tags only.
 - Analysis where a wrong first impression is likely
 
 **When NOT to use:**
-- o1 / o3 / reasoning models (they think internally — adding CoT hurts)
+- `REASONING_NATIVE` models (see [model-registry.md](model-registry.md)) — they think internally, adding CoT hurts
 - Simple tasks where the answer is clear (unnecessary overhead)
 - Creative tasks (CoT can kill natural voice)
 

@@ -280,7 +280,7 @@ Prompt Master only uses techniques with reliable, bounded effects. Methods known
 
 ---
 
-## 🚫 35 Credit-Killing Patterns Detected (with Before/After Examples)
+## 🚫 37 Credit-Killing Patterns Detected (with Before/After Examples)
 
 <details>
 <summary><h3> Task Patterns (7)</h3></summary>
@@ -350,15 +350,15 @@ Prompt Master only uses techniques with reliable, bounded effects. Methods known
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
 | 26 | **No CoT for logic task** | "which approach is better?" | "Think through both approaches step by step before recommending" |
-| 27 | **Adding CoT to reasoning models** | "think step by step" sent to o1/o3 | Removed, reasoning models think internally and CoT instructions degrade output |
-| 28 | **No self-check on complex output** | (nothing) | "Before finishing, verify output against the constraints above" |
-| 29 | **Expecting inter-session memory** | "you already know my project" | Always re-provide the Memory Block |
-| 30 | **Contradicting prior decisions** | New prompt ignores earlier architecture | Memory Block with all established facts |
+| 27 | **Adding CoT to reasoning models** | "think step by step" sent to a reasoning-native model | Remove it — reasoning models think internally and CoT instructions degrade output |
+| 28 | **Expecting inter-session memory** | "you already know my project" | Always re-provide the Memory Block in every new session |
+| 29 | **Contradicting prior work** | New prompt ignores earlier architecture | Include Memory Block with all established decisions |
+| 30 | **No grounding rule for factual tasks** | "summarize what experts say about X" | "Use only information you are highly confident is accurate. Say [uncertain] if not." |
 
 </details>
 
 <details>
-<summary><h3> Agentic Patterns (5)</h3></summary>
+<summary><h3> Agentic Patterns (7)</h3></summary>
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
@@ -367,6 +367,8 @@ Prompt Master only uses techniques with reliable, bounded effects. Methods known
 | 33 | **Silent agent** | No progress output | "After each step output: ✅ [what was completed]" |
 | 34 | **Unlocked filesystem** | No file restrictions | "Only edit files inside `src/`. Do not touch `package.json`, `.env`, or any config file." |
 | 35 | **No human review trigger** | Agent decides everything | "Stop and ask before: deleting any file, adding any dependency, or touching the database schema" |
+| 36 | **Vague first turn on Opus 4.7 / 4.8** | "fix the auth bug" with no scope, no files, no criteria | Opus 4.7 and 4.8 read prompts literally — use Template M. Front-load intent, file scope, constraints, and acceptance criteria. |
+| 37 | **Context rot on long sessions** | Keeps correcting in the same session for 60+ turns | New task = new session. Use /rewind instead of correcting. /compact at ~50% context. Subagents for file-heavy investigation. |
 
 </details>
 
