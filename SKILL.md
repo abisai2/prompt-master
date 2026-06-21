@@ -24,7 +24,7 @@ Build prompts one at a time, ready to paste.
   - **Graph of Thought** -- requires an external graph engine not present in most tools
   - **Universal Self-Consistency** -- requires independent sampling passes
   - **Prompt chaining as a layered technique** -- compounds fabrication risk across longer chains
-- Do not add Chain of Thought to reasoning-native models (o3, o4-mini, DeepSeek-R1, Qwen3 thinking mode) — they think internally, CoT degrades output
+- Do not add Chain of Thought to reasoning-native models (the `REASONING_NATIVE` list in [references/model-registry.md](references/model-registry.md)) — they think internally, CoT degrades output
 - Do not ask more than 3 clarifying questions before producing a prompt
 - Do not pad output with explanations the user did not request
 
@@ -385,7 +385,7 @@ Scan every user-provided prompt or rough idea for these failure patterns. Fix si
 
 **Reasoning failures**
 - Logic or analysis task with no step-by-step → add "Think through this carefully before answering"
-- CoT added to o3/o4-mini/R1/Qwen3-thinking → REMOVE IT
+- CoT added to a `REASONING_NATIVE` model ([references/model-registry.md](references/model-registry.md)) → REMOVE IT
 - New prompt contradicts prior session decisions → flag, resolve, include memory block
 
 **Agentic failures**
@@ -422,7 +422,7 @@ When the user's request references prior work, decisions, or session history —
 **Grounding anchors** — for any factual or citation task:
 "Use only information you are highly confident is accurate. If uncertain, write [uncertain] next to the claim. Do not fabricate citations or statistics."
 
-**Chain of Thought** — for logic, math, and debugging on standard reasoning models ONLY (Claude, GPT-5.x, Gemini, Qwen2.5, Llama). Never on o3/o4-mini/R1/Qwen3-thinking.
+**Chain of Thought** — for logic, math, and debugging on standard reasoning models ONLY (the `COT_SAFE` list in [references/model-registry.md](references/model-registry.md)). Never on `REASONING_NATIVE` models.
 "Think through this step by step before answering."
 
 ---
@@ -457,4 +457,5 @@ Read only when the task requires it. Do not load both at once.
 | File | Read When |
 |------|-----------|
 | [references/templates.md](references/templates.md) | You need the full template structure for any tool category |
-| [references/patterns.md](references/patterns.md) | User pastes a bad prompt to fix, or you need the complete 35-pattern reference |
+| [references/patterns.md](references/patterns.md) | User pastes a bad prompt to fix, or you need the complete 37-pattern reference |
+| [references/model-registry.md](references/model-registry.md) | Applying the CoT rule, or resolving any model's reasoning-native status or current default |
